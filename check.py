@@ -18,3 +18,13 @@ def check_length( length ):
                 return False
         return wrapper
     return decorator
+
+def check_int( func ):
+    def wrapper( args ):
+        try:
+            args = [ int( arg ) for arg in args ]
+        except Exception as e:
+            print( colored_error( "arguments not correct" ) + ", we excpecting int\n" + str( e ))
+            return False
+        return func( args )
+    return wrapper

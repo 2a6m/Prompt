@@ -11,6 +11,7 @@
 
 from sys import exit
 from .color import colored_command, colored_error
+from .check import check_length
 
 class Prompt():
 
@@ -76,7 +77,7 @@ class Prompt():
         self.__startup()
         while self.__running:
             text = input( self.__settings["query"] )
-            if !self.__execute( text ) and self.__settings["debug"]:
+            if not self.__execute( text ) and self.__settings["debug"]:
                 print( colored_error( "error while executing the query" ) + " : " + text )
             else:
                 pass
